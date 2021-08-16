@@ -1,0 +1,30 @@
+{{#partial "styles"}}
+    <link rel='stylesheet' href='/css/App.css'>
+{{/partial}}
+{{#partial "content"}}
+    <h1 class="mob">All locations</h1>
+
+    <div class="container">
+        {{#each locations}}
+            <!-- Card content -->
+            <div class="card-body card-body-cascade text-center">
+
+                <h4 class="card-title"><strong>{{name}}</strong></h4>
+
+                <br>
+                <br>
+                </form>
+            </div>
+        {{/each}}
+    </div>
+    <br>
+
+    </div>
+
+    </div>
+
+    <div class="row text-center">
+        <a href="/locations/new"><button class="btn btn-unique">Add New Location</button></a>
+    </div>
+{{/partial}}
+{{> layout.hbs}}
