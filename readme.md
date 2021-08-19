@@ -1,24 +1,42 @@
-# Project name
-Wild track.
-## Author
+## Wildlife Tracker
 Cyrus Were
-### Set Up
-To recreate this app follow these steps:
-* CREATE DATABASE wild_track;
-* \c wildlife_tracker;
-* CREATE TABLE animals (id serial PRIMARY KEY, name varchar, type varchar, age varchar, health varchar, location varchar);
-* CREATE TABLE endangered (id serial PRIMARY KEY, name varchar, health varchar, age varchar);
-* CREATE TABLE sightings (animals_id int, location varchar, rangername varchar, animal_type varchar);
-* CREATE TABLE rangers (id serial PRIMARY KEY, name varchar, tag int);
-* CREATE DATABASE wild_track_test WITH TEMPLATE wild_track;
+
+
+### Description
+A Java based app that rangers can use to
+report sightings of animals.
+This system also contains a
+database of all animals, all rangers
+and all possible locations that these
+animals can be sighted.
+
+
+### Setup
+
+To create the necessary databases, launch postgres, then psql, and run the following commands:
+
+* `CREATE DATABASE wildlife_tracker;`
+* `\c wildlife_tracker;`
+* `CREATE TABLE animals (id serial PRIMARY KEY, name varchar);`
+* `CREATE TABLE endangered_animals (id serial PRIMARY KEY, name varchar, health int, age int);`
+* `CREATE TABLE locations (id serial PRIMARY KEY, name varchar);`
+* `CREATE TABLE  rangers (id serial PRIMARY KEY, name varchar, email varchar,  badge varchar);`
+* `CREATE TABLE sightings (id serial PRIMARY KEY, animal_id int, location_id int, ranger_id int, sighted_at TIMESTAMP);`
+* `CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;`
+
 ## Technologies used
-Java
-Spark
-JUnit-4
-Handlebars
-Gradle
-### Live Site
+- Java
+- Gradle
+- J-Unit5
+- HandleBars
 
 
-### License
-This project is under the  [MIT](license) license
+## Bugs being worked on
+- It is open for critique and improvements
+
+## Support and contact details
+To help grow and make this product better, reach out to [email](mailto:cyruswere01@gmail.com).
+### LICENSE
+[![License: ISC](https://img.shields.io/badge/License-ISC-yellow.svg)](/LICENSE)
+
+Copyright &copy; 2021 **[Cyrus Were](www.github.com/cyruswere)**
