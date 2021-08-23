@@ -11,6 +11,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="my-app" target="1.8" />
+      <module name="wild-track.main" target="1.8" />
+      <module name="wild-track.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

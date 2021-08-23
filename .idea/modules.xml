@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/my-app.iml" filepath="$PROJECT_DIR$/my-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/wild-track.iml" filepath="$PROJECT_DIR$/.idea/modules/wild-track.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wild-track.main.iml" filepath="$PROJECT_DIR$/.idea/modules/wild-track.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wild-track.test.iml" filepath="$PROJECT_DIR$/.idea/modules/wild-track.test.iml" />
     </modules>
   </component>
 </project>
