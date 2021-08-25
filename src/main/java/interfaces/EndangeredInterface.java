@@ -1,5 +1,5 @@
 package interfaces;
-import models.Endangered;
+//import models.Endangered;
 public interface EndangeredInterface {
     //save
     void save() throws Exception;
