@@ -1,14 +1,18 @@
-import static java.lang.Integer.reverse;
-import static spark.Spark.*;
-
-import java.util.Map;
-import java.util.HashMap;
-
-import models.*;
+import models.Animal;
+import models.Endangered;
+import models.Location;
+import models.Ranger;
+import models.Sighting;
 import spark.ModelAndView;
-//import spark.template.handlebars.HandlebarsTemplateEngine;
+import spark.Spark;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static java.lang.Integer.parseInt;
+import static java.lang.Integer.reverse;
+
+//import spark.template.handlebars.HandlebarsTemplateEngine;
 
 public class App {
     public static void main(String[] args) {
@@ -19,27 +23,27 @@ public class App {
         } else {
             port = 4567;
         }
-        port(port);
+        Spark.port(port);
 
-        staticFileLocation("/public");
+        Spark.staticFileLocation("/public");
 
-        get("/", (request, response) -> {
+        Spark.get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "index.hbs");
         });
 
-        get("/animals", (request, response) -> {
+        Spark.get("/animals", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("animals", Animal.Animal_type);
             return new ModelAndView(model, "animal.hbs");
         });
 
-        get("/animals/new", (req, res) -> {
+        Spark.get("/animals/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "animal-form.hbs");
         });
 
-        post("/animal/new", (req, res) -> {
+        Spark.post("/animal/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int id = reverse(0);
             String name = req.queryParams("name");
@@ -53,12 +57,12 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         });
 
-        get("/endanger/new", (req, res) -> {
+        Spark.get("/endanger/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "endan-form.hbs");
         });
 
-        post("/endangered/new", (req, res) -> {
+        Spark.post("/endangered/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int id = reverse(0);
             String name = req.queryParams("name");
@@ -72,13 +76,13 @@ public class App {
             return new ModelAndView(model, "success2.hbs");
         });
 
-        get("/sightings", (request, response) -> {
+        Spark.get("/sightings", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("sighting", Sighting.all());
             return new ModelAndView(model, "sight.hbs");
         });
 
-        get("/sightings/new", (request, response) -> {
+        Spark.get("/sightings/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
 //            model.put("animals", Animal.all());
             model.put("location", Location.all());
@@ -87,7 +91,7 @@ public class App {
             return new ModelAndView(model, "sight-form.hbs");
         });
 
-        post("/sight/new" , (req,res) ->{
+        Spark.post("/sight/new" , (req, res) ->{
             Map<String, Object> model = new HashMap<>();
             Integer id = reverse(0);
             String location = req.queryParams("location");
@@ -99,19 +103,19 @@ public class App {
             return new ModelAndView(model,"success-sight.hbs");
         });
 
-        get("/locations", (request, response) -> {
+        Spark.get("/locations", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("location", Location.all());
             return new ModelAndView(model, "location.hbs");
         });
 
-        get("/locations/new", (req,res) ->{
+        Spark.get("/locations/new", (req, res) ->{
             Map<String, Object> model = new HashMap<>();
             model.put("location", Location.all());
             return new ModelAndView(model,"location-form.hbs");
         });
 
-        post("/loc/new" , (req,res) ->{
+        Spark.post("/loc/new" , (req, res) ->{
             Map<String, Object> model = new HashMap<>();
 //            Integer id = reverse(0);
             String sightings_location = req.queryParams("sightings_location");
