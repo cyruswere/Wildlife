@@ -24,9 +24,9 @@ dependencies {
 
 }
 
-test {
-    useJUnitPlatform()
-}
+//test {
+//    useJUnitPlatform()
+//}
 testCompile ('org.junit.jupiter:junit-jupiter:5.6.0')
 
 def testCompile(String s) {}
