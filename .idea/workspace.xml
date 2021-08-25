@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7b63348a-3699-4474-a394-3c834f6db057" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/interfaces/AnimalInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interfaces/AnimalInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Endangered.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Endangered.java" afterDir="false" />
     </list>
