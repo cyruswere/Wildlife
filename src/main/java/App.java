@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.HashMap;
 
 import models.*;
-import Animal.java;
 import spark.ModelAndView;
 //import spark.template.handlebars.HandlebarsTemplateEngine;
 
