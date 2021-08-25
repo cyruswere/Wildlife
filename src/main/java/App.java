@@ -1,5 +1,7 @@
 import models.*;
 import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
 import spark.Spark;
 
 import java.util.HashMap;
@@ -30,7 +32,7 @@ public class App {
 
         Spark.get("/animals", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            model.put("animals", Animal.Animal_type);
+//            model.put("animals", Animal.Animal_type);
             return new ModelAndView(model, "animal.hbs");
         });
 
@@ -47,9 +49,9 @@ public class App {
             String age = req.queryParams("age");
             String health = req.queryParams("health");
             String location = req.queryParams("location");
-            Animal newAnimal = new Animal(id,name, type, age, health, location);
-            newAnimal.save();
-            model.put("animals", Animal.Animal_type);
+//            Animal newAnimal = new Animal(id,name, type, age, health, location);
+//            newAnimal.save();
+//            model.put("animals", Animal.Animal_type);
             return new ModelAndView(model, "success.hbs");
         });
 
@@ -66,38 +68,29 @@ public class App {
             String age = req.queryParams("age");
             String health = req.queryParams("health");
             String location = req.queryParams("location");
-            Animal newAnimal = new Animal(id, name, type, age, health, location);
-            newAnimal.save();
-            model.put("animals", Animal.Animal_type);
+//            Animal newAnimal = new Animal(id, name, type, age, health, location);
+//            newAnimal.save();
+//            model.put("animals", Animal.Animal_type);
             return new ModelAndView(model, "success2.hbs");
         });
 
         Spark.get("/sightings", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            model.put("sighting", Sighting.all());
+//            model.put("sighting", Sighting.all());
             return new ModelAndView(model, "sight.hbs");
         });
 
         Spark.get("/sightings/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
 //            model.put("animals", Animal.all());
-            model.put("location", Location.all());
-            model.put("endangered", Endangered.all());
-            model.put("rangers", Ranger.all());
+//            model.put("location", Location.all());
+//            model.put("endangered", Endangered.all());
+//            model.put("rangers", Ranger.all());
             return new ModelAndView(model, "sight-form.hbs");
         });
 
-        Spark.post("/sight/new" , (req, res) ->{
-            Map<String, Object> model = new HashMap<>();
-            Integer id = reverse(0);
-            String location = req.queryParams("location");
-            String rangername = req.queryParams("rangername");
-            String animal_type = req.queryParams("animal_type");
-            Sighting newSighting =new Sighting (id,location,rangername,animal_type);
-            newSighting.save();
-//            model.put("sightings", Sighting.all());
-            return new ModelAndView(model,"success-sight.hbs");
-        });
+        Spark.post("/sight/new" , //            model.put("sightings", Sighting.all());
+                App::handle);
 
         Spark.get("/locations", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -122,5 +115,17 @@ public class App {
 //            model.put("sightings", Sighting.all());
             return new ModelAndView(model,"loc-success.hbs");
         });
+    }
+
+    private static Object handle(Request req, Response res) {
+        Map<String, Object> model = new HashMap<>();
+        Integer id = reverse(0);
+        String location = req.queryParams("location");
+        String rangername = req.queryParams("rangername");
+        String animal_type = req.queryParams("animal_type");
+        Sighting newSighting = new Sighting(id, location, rangername, animal_type);
+        newSighting.save();
+//            model.put("sightings", Sighting.all());
+        return new ModelAndView(model, "success-sight.hbs");
     }
 }
